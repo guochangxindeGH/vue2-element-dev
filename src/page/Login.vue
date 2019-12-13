@@ -3,7 +3,7 @@
         <transition name="form-fade" mode="in-out">
             <section class="form_contianer">
                 <div class="manage_tip">
-                    <span class="title">小爱xx管理系统</span>
+                    <span class="title">Cxx监控系统</span>
                 </div>
                 <el-form :model="loginForm" :rules="rules" ref="loginForm" class="loginForm">
                     <el-form-item prop="username" class="login-item">
@@ -80,6 +80,21 @@ export default {
         background: url(../assets/img/bg9.jpg) no-repeat center center;
         background-size: 100% 100%;
     }
+    .form_contianer{
+        width:370px;
+        height:210px;
+        position: absolute;
+        top: 20%;
+        left: 34%;
+        padding: 25px;
+        border-radius: 5px;
+        text-align: center;
+        .submit_btn{
+            width: 100%;
+            font-size: 16px;
+            letter-spacing:20px;
+        }
+    }
     .loginForm{
         background-color: #fff;
         padding:20px;
@@ -107,21 +122,6 @@ export default {
         .logo{
             width:60px;
             height:60px;
-        }
-    }
-    .form_contianer{
-        width:370px;
-        height:210px;
-        position: absolute;
-        top: 20%;
-        left: 34%;
-        padding: 25px;
-        border-radius: 5px;
-        text-align: center;
-        .submit_btn{
-            width: 100%;
-            font-size: 16px;
-            letter-spacing:20px;
         }
     }
     .tiparea{

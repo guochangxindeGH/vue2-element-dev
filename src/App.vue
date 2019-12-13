@@ -15,7 +15,7 @@ export default {
     @import "./style/common";
     @import "style/element-ui";
     @import "style/scrollBar";
-    /*@import "style/font-awesome.min.css";*/
+    @import "style/font-awesome.min.css";
 #app {
   /*font-family: 'Avenir', Helvetica, Arial, sans-serif;*/
   /*-webkit-font-smoothing: antialiased;*/
