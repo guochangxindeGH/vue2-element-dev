@@ -6,7 +6,7 @@
                     <span class="title">Cxx监控系统</span>
                 </div>
                 <el-form :model="loginForm" :rules="rules" ref="loginForm" class="loginForm">
-                    <el-form-item prop="username" class="login-item">
+                    <el-form-item  class="login-item">
                         <span class="fa-tips"><i class="fa fa-user"></i></span>
                         <el-input @keyup.enter.native ="submitForm('loginForm')"  class="area" type="text" placeholder="用户名" v-model="loginForm.username" ></el-input>
                     </el-form-item>
@@ -30,12 +30,20 @@
 </template>
 
 <script>
+import { mapState, mapMutations, mapActions } from 'vuex'
+
 export default {
+  computed: {
+    ...mapState([
+      'name',
+      'password'
+    ])
+  },
   data () {
     return {
       loginForm: {
-        username: 'admin',
-        password: '123456'
+        username: this.$store.state.user.name,
+        password: this.$store.state.user.password
       },
       rules: {
         username: [
@@ -51,6 +59,14 @@ export default {
   mounted () {
   },
   methods: {
+    ...mapMutations([
+      'SET_NAME',
+      'SET_password'
+    ]),
+    ...mapActions([
+      'actionChangeSystem',
+      'actionChangeSystemID'
+    ]),
     showMessage (type, message) {
       this.$message({
         type: type,
@@ -58,13 +74,17 @@ export default {
       })
     },
     submitForm (loginForm) {
+      console.log(this.name, this.password)
       this.$refs[loginForm].validate((valid) => {
         if (valid) {
           let userinfo = this.loginForm
-          this.$store.dispatch('Login', userinfo).then(res => {
-            this.$router.push({ path: '/' })
-            this.$store.dispatch('initLeftMenu') // 设置左边菜单始终为展开状态
-          })
+          this.$store.commit('SET_NAME', userinfo.username)
+          this.$store.commit('SET_password', userinfo.password)
+
+          // this.$store.dispatch('Login', userinfo).then(res => {
+          //   this.$router.push({ path: '/' })
+          //   this.$store.dispatch('initLeftMenu') // 设置左边菜单始终为展开状态
+          // })
         }
       })
     }

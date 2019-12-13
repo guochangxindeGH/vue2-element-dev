@@ -44,7 +44,7 @@ const menu = {
     initLeftMenu: ({ commit }) => {
       commit(types.INIT_LEFT_MENU)
     },
-    setLeftCollapse: ({ commit}) => {
+    setLeftCollapse: ({ commit }) => {
       commit(types.SET_LEFT_COLLAPSE)
     }
   }

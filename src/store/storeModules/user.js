@@ -1,5 +1,3 @@
-
-import * as mUtils from '@/utils/mUtils'
 import { login, getInfo } from '@/api/login' // 导入登录相关接口
 import { getUserList } from '@/api/user' // 导入用户信息相关接口
 import { getToken, setToken, removeToken } from '@/utils/auth'
@@ -7,15 +5,14 @@ import { getToken, setToken, removeToken } from '@/utils/auth'
 const user = {
   state: {
     name: '',
-    avatar: '',
+    password: '',
     token: getToken(),
-    roles: [],
-    browserHeaderTitle: mUtils.getStore('browserHeaderTitle') || '小爱管理系统'
+    roles: []
   },
   getters: {
     token: state => state.token,
     roles: state => state.roles,
-    avatar: state => state.avatar,
+    password: state => state.password,
     name: state => state.name,
     isLock: state => state.isLock,
     lockPasswd: state => state.lockPasswd,
@@ -34,8 +31,8 @@ const user = {
     SET_NAME: (state, name) => {
       state.name = name
     },
-    SET_AVATAR: (state, avatar) => {
-      state.avatar = avatar
+    SET_password: (state, password) => {
+      state.password = password
     }
   },
   actions: {
@@ -65,10 +62,10 @@ const user = {
           if (data.roles && data.roles.length > 0) { // 验证返回的roles是否是一个非空数组
             commit('SET_ROLES', data.roles) // []
           } else {
-            reject('getInfo: roles must be a non-null array !')
+            reject(new Error('getInfo: roles must be a non-null array !'))
           }
           commit('SET_NAME', data.name)
-          commit('SET_AVATAR', data.avatar)
+          commit('SET_password', data.password)
           resolve(response.data)
         }).catch(error => {
           reject(error)
@@ -117,7 +114,7 @@ const user = {
           // 根据token,获取到新的roles信息并保存到vuex;
           commit('SET_ROLES', data.roles)
           commit('SET_NAME', data.name)
-          commit('SET_AVATAR', data.avatar)
+          commit('SET_password', data.password)
           resolve()
         })
       })
