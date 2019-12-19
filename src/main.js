@@ -7,7 +7,6 @@ import store from './store/'
 import ElementUI from 'element-ui'
 import 'element-ui/lib/theme-chalk/index.css'
 import axios from 'axios'
-import 'mockjs'
 import './mockjs/index'
 
 Vue.prototype.$axios = axios

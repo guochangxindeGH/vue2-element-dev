@@ -74,7 +74,6 @@ export default {
       })
     },
     submitForm (loginForm) {
-      console.log(this.name, this.password)
       this.$refs[loginForm].validate((valid) => {
         if (valid) {
           let userinfo = this.loginForm
@@ -82,13 +81,12 @@ export default {
           this.$store.commit('SET_password', userinfo.password)
           this.$axios.get('/login').then((res) => {
             if (res.status === 200) {
-              console.log(res.data)
+              console.log(res.data.data)
               this.$router.push({
                 name: 'Index'
               })
             }
           })
-
           // this.$store.dispatch('Login', userinfo).then(res => {
           //   this.$router.push({ path: '/' })
           //   this.$store.dispatch('initLeftMenu') // 设置左边菜单始终为展开状态
