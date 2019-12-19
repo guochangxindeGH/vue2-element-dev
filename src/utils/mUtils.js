@@ -19,6 +19,7 @@ export const getStore = name => {
     try {
       value = JSON.parse(value)
     } catch (e) {
+      // eslint-disable-next-line no-self-assign
       value = value
     }
   }
@@ -94,6 +95,7 @@ export const parseToDate = (timeValue) => {
  */
 export const isEmpty = (keys) => {
   if (typeof keys === 'string') {
+    // eslint-disable-next-line no-useless-escape
     keys = keys.replace(/\"|&nbsp;|\\/g, '').replace(/(^\s*)|(\s*$)/g, '')
     if (keys === '' || keys === null || keys === 'null' || keys === 'undefined') {
       return true

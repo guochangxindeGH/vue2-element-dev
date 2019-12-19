@@ -80,9 +80,17 @@ export default {
           let userinfo = this.loginForm
           this.$store.commit('SET_NAME', userinfo.username)
           this.$store.commit('SET_password', userinfo.password)
-          this.$router.push({
-            name: 'Index'
+          debugger
+          this.$axios.get('/login').then((res) => {
+            debugger
+            if (res.status === 200) {
+              console.log(res.data)
+              this.$router.push({
+                name: 'Index'
+              })
+            }
           })
+
           // this.$store.dispatch('Login', userinfo).then(res => {
           //   this.$router.push({ path: '/' })
           //   this.$store.dispatch('initLeftMenu') // 设置左边菜单始终为展开状态

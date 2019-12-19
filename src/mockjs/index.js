@@ -7,6 +7,18 @@ Mock.setup({
   timeout: '300-600'
 })
 
+Mock.mock('/login', /post|get/i, {
+  'array|1-10': [
+    {
+      'name|+1': [
+        'hello',
+        'mock.js',
+        '!'
+      ]
+    }
+  ]
+})
+
 // 资金相关
 Mock.mock(/\/money\/get/, 'get', tableAPI.getMoneyList)
 Mock.mock(/\/money\/remove/, 'get', tableAPI.deleteMoney)
