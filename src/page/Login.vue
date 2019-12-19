@@ -80,9 +80,7 @@ export default {
           let userinfo = this.loginForm
           this.$store.commit('SET_NAME', userinfo.username)
           this.$store.commit('SET_password', userinfo.password)
-          debugger
           this.$axios.get('/login').then((res) => {
-            debugger
             if (res.status === 200) {
               console.log(res.data)
               this.$router.push({
