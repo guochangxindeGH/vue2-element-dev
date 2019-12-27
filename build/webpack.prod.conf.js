@@ -5,10 +5,27 @@ const webpack = require('webpack')
 const config = require('../config')
 const merge = require('webpack-merge')
 const baseWebpackConfig = require('./webpack.base.conf')
+
+// 将项目中的某单个文件或整个文件夹在打包的时候复制一份到打包后的文件夹中（即复制一份到dist目录下）。
 const CopyWebpackPlugin = require('copy-webpack-plugin')
+
+// 为html文件中引入的外部资源如script、link动态添加每次compile后的hash，防止引用缓存的外部文件问题
+// 可以生成创建html入口文件，比如单页面可以生成一个html文件入口，配置N个html-webpack-plugin可以生成N个页面入口
 const HtmlWebpackPlugin = require('html-webpack-plugin')
+
+// 将CSS提取为独立的文件的插件，对每个包含css的js文件都会创建一个CSS文件，支持按需加载css和sourceMap
 const ExtractTextPlugin = require('extract-text-webpack-plugin')
+
+/**
+ * css 压缩 会清除css中注释
+ * npm install --save-dev optimize-css-assets-webpack-plugin
+ */
 const OptimizeCSSPlugin = require('optimize-css-assets-webpack-plugin')
+
+/**
+ * js 压缩
+ * npm install uglifyjs-webpack-plugin --save-dev
+ */
 const UglifyJsPlugin = require('uglifyjs-webpack-plugin')
 
 const env = process.env.NODE_ENV === 'testing'
@@ -48,7 +65,7 @@ const webpackConfig = merge(baseWebpackConfig, {
       filename: utils.assetsPath('css/[name].[contenthash].css'),
       // Setting the following option to `false` will not extract CSS from codesplit chunks.
       // Their CSS will instead be inserted dynamically with style-loader when the codesplit chunk has been loaded by webpack.
-      // It's currently set to `true` because we are seeing that sourcemaps are included in the codesplit bundle as well when it's `false`, 
+      // It's currently set to `true` because we are seeing that sourcemaps are included in the codesplit bundle as well when it's `false`,
       // increasing file size: https://github.com/vuejs-templates/webpack/issues/1110
       allChunks: true,
     }),
