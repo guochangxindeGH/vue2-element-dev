@@ -17,6 +17,12 @@ const HtmlWebpackPlugin = require('html-webpack-plugin')
 const ExtractTextPlugin = require('extract-text-webpack-plugin')
 
 /**
+ * 提取css到单独文件
+ * npm install --save-dev mini-css-extract-plugin
+ */
+// const MiniCssExtractPlugin = require("mini-css-extract-plugin");
+
+/**
  * css 压缩 会清除css中注释
  * npm install --save-dev optimize-css-assets-webpack-plugin
  */
@@ -141,6 +147,8 @@ const webpackConfig = merge(baseWebpackConfig, {
 })
 
 if (config.build.productionGzip) {
+  // vue项目中由于对对组件的不正确使用、对第三方插件的滥用、本身项目功能复杂导致的打包后项目巨大，影响用户体验，因此vue脚手架2.x中内置的一个压缩"糖"
+  // 打包的时候开启gzip可以大大减少体积，非常适合于上线部署。下面以vue-cli2.x项目为例，介绍如何在vue中开启gzip。😄
   const CompressionWebpackPlugin = require('compression-webpack-plugin')
 
   webpackConfig.plugins.push(
@@ -159,6 +167,9 @@ if (config.build.productionGzip) {
 }
 
 if (config.build.bundleAnalyzerReport) {
+  // 分析SPA应用
+  // npm run analyz  后会自动打开 http://127.0.0.1:8888/
+  // 通过使用webpack-bundle-analyzer可以看到项目各模块的大小，可以按需优化
   const BundleAnalyzerPlugin = require('webpack-bundle-analyzer').BundleAnalyzerPlugin
   webpackConfig.plugins.push(new BundleAnalyzerPlugin())
 }

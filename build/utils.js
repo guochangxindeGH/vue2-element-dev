@@ -4,6 +4,7 @@ const config = require('../config')
 const ExtractTextPlugin = require('extract-text-webpack-plugin')
 const packageConfig = require('../package.json')
 
+// 将资源文件合并到config文件中的配置项中
 exports.assetsPath = function (_path) {
   const assetsSubDirectory = process.env.NODE_ENV === 'production'
     ? config.build.assetsSubDirectory
@@ -82,6 +83,7 @@ exports.styleLoaders = function (options) {
   return output
 }
 
+// 当出现报错时，使用node-notifier弹出系统消息弹窗告知出现错误
 exports.createNotifierCallback = () => {
   const notifier = require('node-notifier')
 
@@ -90,7 +92,7 @@ exports.createNotifierCallback = () => {
 
     const error = errors[0]
     const filename = error.file && error.file.split('!').pop()
-
+    // 这里是设置当出现错误时，给你的，标题，错误信息，错误文件地址，以及图标
     notifier.notify({
       title: packageConfig.name,
       message: severity + ': ' + error.name,

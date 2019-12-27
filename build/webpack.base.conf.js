@@ -57,7 +57,9 @@ module.exports = {
       },
       {
         test: /\.js$/,
-        loader: 'babel-loader',
+        // ?cacheDirectory=true这个参数，是使用缓存
+        // 这样的好处是当你的项目非常大的时候，这将提升至少2倍的构建速度
+        loader: 'babel-loader?cacheDirectory=true',
         include: [resolve('src'), resolve('test'), resolve('node_modules/webpack-dev-server/client')]
       },
       {
