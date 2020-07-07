@@ -69,7 +69,7 @@ export default {
   methods: {
     setSectionHeight () {
       this.$nextTick(() => {
-        this.$refs.data_section.style.height = (document.body.clientHeight - 200) + 'px'
+        this.$refs.data_section.style.height = (document.body.clientHeight - 100) + 'px'
       })
     }
   }
