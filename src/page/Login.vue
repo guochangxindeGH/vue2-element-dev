@@ -83,7 +83,7 @@ export default {
             if (res.status === 200) {
               console.log(res.data.data)
               this.$router.push({
-                name: 'Index'
+                name: 'Home'
               })
             }
           })

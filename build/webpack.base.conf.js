@@ -45,6 +45,7 @@ module.exports = {
       'store'   : resolve('src/store'),
       'register'   : resolve('src/register'),
       'router'   : resolve('src/router'),
+      'cps': resolve('src/components'),
     }
   },
   module: {
