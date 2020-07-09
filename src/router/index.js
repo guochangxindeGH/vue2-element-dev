@@ -8,21 +8,22 @@ Vue.use(Router)
 
 export default new Router({
   routes: [
-    {
-      path: '',
-      component: Layout,
-      redirect: '/home/Home',
-      hidden: true
-    },
+    // {
+    //   path: '',
+    //   component: Layout,
+    //   redirect: '/index/index',
+    //   hidden: true
+    // },
     {
       path: '/',
       name: 'Login',
       component: Login
     },
     {
-      path: '/Home',
-      name: 'Home',
+      path: '/index',
+      name: 'index',
       component: Layout,
+      redirect: '/index/index',
       meta: {
         title: '首页',
         icon: 'icondashboard'
@@ -30,13 +31,13 @@ export default new Router({
       noDropdown: true,
       children: [
         {
-          path: 'home',
+          path: 'index',
           meta: {
             title: '首页',
             icon: 'icondashboard',
             routerType: 'leftmenu'
           },
-          component: () => import('@/page/home/Home')
+          component: () => import('@/page/index/index')
         }
       ]
     },

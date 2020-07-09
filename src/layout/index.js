@@ -5,5 +5,5 @@ import Content from './content.vue'
 export {
   Layout,
   Content,
-  leftMenu,
+  leftMenu
 }

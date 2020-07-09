@@ -6,7 +6,7 @@
 <!--                <bread></bread>-->
                 <router-view></router-view><!--页面渲染入口-->
             </div>
-            <backTop :ele="$refs.menu_right"></backTop>
+<!--            <backTop :ele="$refs.menu_right"></backTop>-->
         </div>
     </div>
 </template>
@@ -15,7 +15,7 @@ import { mapGetters } from 'vuex'
 
 import LeftMenu from './leftMenu.vue'
 // import Bread from './bread.vue'
-import backTop from 'cps/backTop'
+// import backTop from 'cps/backTop'
 
 export default {
   name: 'home',
@@ -27,9 +27,9 @@ export default {
     ...mapGetters(['sidebar'])
   },
   components: {
-    LeftMenu,
+    LeftMenu
     // Bread,
-    backTop
+    // backTop
   },
   created () {
   },
