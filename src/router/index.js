@@ -42,8 +42,9 @@ export default new Router({
       ]
     },
     {
-      path: '/userManager',
-      name: 'userManage',
+      path: '/userList',
+      name: 'userList',
+      // redirect: '/userList/userList',
       component: Layout,
       meta: {
         title: '用户管理',

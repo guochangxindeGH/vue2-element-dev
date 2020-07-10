@@ -1,7 +1,7 @@
 <template>
     <div class="home rflex">
         <left-menu></left-menu>
-        <div class="menu_right wflex el-scrollbar" ref="menu_right" :style="{left:sidebar.width+'px'}">
+        <div class="menu_right wflex el-scrollbar" ref="menu_right" style="left: 180px">
             <div class="menu_content" ref="menu_content">
 <!--                <bread></bread>-->
                 <router-view></router-view><!--页面渲染入口-->
