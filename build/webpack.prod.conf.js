@@ -48,9 +48,10 @@ const webpackConfig = merge(baseWebpackConfig, {
   },
   devtool: config.build.productionSourceMap ? config.build.devtool : false,
   output: {
-    path: config.build.assetsRoot,
-    filename: utils.assetsPath('js/[name].[chunkhash].js'),
-    chunkFilename: utils.assetsPath('js/[id].[chunkhash].js')
+    publicPath: './dist/',  //输出目录，index.html寻找资源的地址
+    path: config.build.assetsRoot,  // 打包目录
+    filename: utils.assetsPath('js/[name].[chunkhash].js'),  // 输出文件名
+    chunkFilename: utils.assetsPath('js/[id].[chunkhash].js')   // commonChunk 输出文件
   },
   plugins: [
     // http://vuejs.github.io/vue-loader/en/workflow/production.html
@@ -85,6 +86,9 @@ const webpackConfig = merge(baseWebpackConfig, {
     // generate dist index.html with correct asset hash for caching.
     // you can customize output by editing /index.html
     // see https://github.com/ampedandwired/html-webpack-plugin
+    /**
+     * 打包HTML
+     */
     new HtmlWebpackPlugin({
       filename: process.env.NODE_ENV === 'testing'
         ? 'index.html'
