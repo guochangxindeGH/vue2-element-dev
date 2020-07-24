@@ -27,10 +27,10 @@
                     </router-link>
                 </template>
                 <template>
-                    <router-link to="/index">
+                    <router-link to="/pdf/pdf">
                         <el-menu-item index="3">
                             <i class="el-icon-menu"></i>
-                            <span slot="title">导航三</span>
+                            <span slot="title">预览PDF</span>
                         </el-menu-item>
                     </router-link>
                 </template>

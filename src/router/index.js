@@ -62,6 +62,26 @@ export default new Router({
           component: () => import('@/page/userList/userList')
         }
       ]
+    },
+    {
+      path: '/pdf',
+      name: 'pdf',
+      component: Layout,
+      meta: {
+        title: '预览PDF',
+        icon: 'iconuser'
+      },
+      children: [
+        {
+          path: 'pdf',
+          meta: {
+            title: '预览PDF',
+            icon: 'iconuser',
+            routerType: 'leftmenu'
+          },
+          component: () => import('@/page/pdf/pdf')
+        }
+      ]
     }
   ]
 })
