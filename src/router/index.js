@@ -15,9 +15,15 @@ export default new Router({
     //   hidden: true
     // },
     {
-      path: '/',
+      path: '/login',
       name: 'Login',
       component: Login
+    },
+    {
+      path: '/down',
+      component: () => import('@/page/pdf/download'),
+      name: 'downpdf',
+      meta: { title: 'pdf', icon: 'el-icon-s-home' }
     },
     {
       path: '/index',

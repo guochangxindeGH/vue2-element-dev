@@ -48,7 +48,7 @@ const webpackConfig = merge(baseWebpackConfig, {
   },
   devtool: config.build.productionSourceMap ? config.build.devtool : false,
   output: {
-    publicPath: './dist/',  //输出目录，index.html寻找资源的地址
+    // publicPath: './dist/',  //输出目录，index.html寻找资源的地址
     path: config.build.assetsRoot,  // 打包目录
     filename: utils.assetsPath('js/[name].[chunkhash].js'),  // 输出文件名
     chunkFilename: utils.assetsPath('js/[id].[chunkhash].js')   // commonChunk 输出文件
