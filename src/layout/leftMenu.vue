@@ -42,6 +42,14 @@
                         </el-menu-item>
                     </router-link>
                 </template>
+                <template>
+                    <router-link to="/canvas/canvaScreen">
+                        <el-menu-item index="5">
+                            <i class="el-icon-menu"></i>
+                            <span slot="title">canvasView</span>
+                        </el-menu-item>
+                    </router-link>
+                </template>
             </el-menu>
         </div>
     </div>

@@ -108,6 +108,26 @@ export default new Router({
           component: () => import('@/page/treeScreen/treeScreen')
         }
       ]
+    },
+    {
+      path: '/canvas',
+      name: 'canvas',
+      component: Layout,
+      meta: {
+        title: 'canvasView',
+        icon: 'iconuser'
+      },
+      children: [
+        {
+          path: 'canvaScreen',
+          meta: {
+            title: 'tree3D',
+            icon: 'iconuser',
+            routerType: 'leftmenu'
+          },
+          component: () => import('@/page/canvas/canvaScreen')
+        }
+      ]
     }
   ]
 })
