@@ -8,12 +8,12 @@ Vue.use(Router)
 
 export default new Router({
   routes: [
-    // {
-    //   path: '',
-    //   component: Layout,
-    //   redirect: '/index/index',
-    //   hidden: true
-    // },
+    {
+      path: '',
+      component: Layout,
+      redirect: '/login',
+      hidden: true
+    },
     {
       path: '/login',
       name: 'Login',
@@ -61,7 +61,7 @@ export default new Router({
         {
           path: 'userList',
           meta: {
-            title: '用户管理',
+            title: 'D3视图',
             icon: 'iconuser',
             routerType: 'leftmenu'
           },
@@ -86,6 +86,26 @@ export default new Router({
             routerType: 'leftmenu'
           },
           component: () => import('@/page/pdf/pdf')
+        }
+      ]
+    },
+    {
+      path: '/tree',
+      name: 'tree',
+      component: Layout,
+      meta: {
+        title: 'tree3D',
+        icon: 'iconuser'
+      },
+      children: [
+        {
+          path: 'tree',
+          meta: {
+            title: 'tree3D',
+            icon: 'iconuser',
+            routerType: 'leftmenu'
+          },
+          component: () => import('@/page/treeScreen/treeScreen')
         }
       ]
     }

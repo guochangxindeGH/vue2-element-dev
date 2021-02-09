@@ -74,7 +74,7 @@ module.exports = {
     // Before setting to `true`, make sure to:
     // npm install --save-dev compression-webpack-plugin
     // vue项目中由于对对组件的不正确使用、对第三方插件的滥用、本身项目功能复杂导致的打包后项目巨大，影响用户体验，因此vue脚手架2.x中内置的一个压缩"糖"
-    productionGzip: true,
+    productionGzip: false,
     productionGzipExtensions: ['js', 'css'],
 
     // 此处配置是是否启动webpack打包检测你可以通过使用以下命令进行启动

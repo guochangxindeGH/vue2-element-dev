@@ -13,7 +13,7 @@
                     <router-link to="/index/index">
                         <el-menu-item index="1">
                             <i class="el-icon-menu"></i>
-                            <span slot="title">导航一</span>
+                            <span slot="title">首页</span>
                         </el-menu-item>
                     </router-link>
                 </template>
@@ -22,7 +22,7 @@
                     <router-link to="/userList/userList">
                         <el-menu-item index="2">
                             <i class="el-icon-menu"></i>
-                            <span slot="title">导航二</span>
+                            <span slot="title">D3视图</span>
                         </el-menu-item>
                     </router-link>
                 </template>
@@ -35,10 +35,10 @@
                     </router-link>
                 </template>
                 <template>
-                    <router-link to="/index">
+                    <router-link to="/tree/tree">
                         <el-menu-item index="4">
                             <i class="el-icon-menu"></i>
-                            <span slot="title">导航四</span>
+                            <span slot="title">tree3D</span>
                         </el-menu-item>
                     </router-link>
                 </template>
